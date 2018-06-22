@@ -1,0 +1,24 @@
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+    <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin_page') }}">
+                    <span data-feather="home"></span>
+                    首页 <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin_student_index') }}">
+                    <span data-feather="file"></span>
+                    考试管理
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin_offer') }}">
+                    <span data-feather="file"></span>
+                    优惠活动
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

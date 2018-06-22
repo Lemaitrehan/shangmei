@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand">考生个人信息查询</a>
+    </nav>
+
+    <div class="container">
+        <p class="lead" style="text-align: center;">2018年春中石油期末考试</p>
+        {% for student in students %}
+            <div class="card" style="margin-top: 2em;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ student.subject }}</h5>
+                    <p class="card-text"><span>地点：</span> {{ student.address }}</p>
+                    <p class="card-text"><span>考场：</span> {{ student.site }} <span>教室：</span>{{ student.room }}</p>
+                    <p class="card-text"><span>座位：</span> {{ student.seat }}</p>
+                    <p class="card-text"><span>时间：</span> {{ student.time }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

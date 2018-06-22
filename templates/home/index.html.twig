@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand">考生个人信息查询</a>
+    </nav>
+
+    <div class="container">
+        <p><a href="{{ path('offer_page') }}">领取优惠</a></p>
+        <form style="margin-top: 2em;" method="post" action="{{ path('info_page') }}">
+            <label for="inputEmail" class="sr-only">姓名</label>
+            <input type="text" id="inputEmail" name="name" class="form-control" placeholder="请输入姓名" required autofocus>
+            <label for="inputPassword" class="sr-only">考生号</label>
+            <input type="text" id="inputPassword" class="form-control" name="number" placeholder="请输入考生号" required>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" id="search">查询</button>
+            <p></p>
+        </form>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(function () {
+
+            $("#search").click(function () {
+
+                let name = $("input[name=name]").val();
+                let number = $("input[name=number]").val();
+
+                if(name === '') {
+                    alert('名称不能为空');
+                    return false;
+                }
+
+                if(number === '') {
+                    alert('考生号不能为空');
+                    return false;
+                }
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand">优惠活动</a>
+    </nav>
+    <div class="container">
+        <form action="{{ path('offer_page') }}" method="post">
+            <input type="text" name="name" placeholder="请输入你的真实姓名">
+            <input type="text" name="phone" placeholder="请输入你的手机号码">
+            <button type="submit" id="btn">查询</button>
+        </form>
+    </div>
+    {% if user %}
+    <div class="container">
+        <div class="row">
+            <img src="{{ asset('uploads/xlsx/' ~ user.offer ~ '.jpg') }}" alt="{{ user.name }}" class="img-fluid">
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(function () {
+            $("#btn").click(function () {
+                if($("input[name=name]").val() === '') {
+                    alert('姓名不能为空');
+                    return false;
+                }
+
+                if($("input[name=phone]").val() === '') {
+                    alert("手机号码不能为空");
+                    return false;
+                }
+            });
+        });
+    </script>
+{% endblock %}
